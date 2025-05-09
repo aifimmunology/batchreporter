@@ -666,7 +666,7 @@ rm(jackstraw_cells, jackstraw_so)
 
 ```{r rna_merged_umap}
 # Run UMAP
-stm(sprintf("Running UMAP on selected coordinates for scRNA UMAP"))
+stm(sprintf("Running UMAP on selected coordinates for scRNA UMAP!"))
 
 merged_so <- Seurat::RunUMAP(merged_so,
                                    dims = c(1:50)[good_pcs],
@@ -681,7 +681,7 @@ merged_so <- Seurat::RunUMAP(merged_so,
 # Get UMAP coordinates
 umapDF <- merged_so[["umap"]]@cell.embeddings %>%
           as.data.frame() %>%
-          dplyr::rename(UMAP_1_merged = UMAP_1, UMAP_2_merged = UMAP_2) %>%
+          dplyr::rename(UMAP_1_merged = umap_1, UMAP_2_merged = umap_2) %>%
           tibble::rownames_to_column(var = "barcodes")
 umapDF <- merge(umapDF, rna_meta_sampled, by = "barcodes")
 rownames(umapDF) <- umapDF$barcodes
