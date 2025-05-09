@@ -893,7 +893,7 @@ merged_so <- Seurat::RunUMAP(merged_so,
 # Get UMAP coordinates
 umapDF <- merged_so[["umap"]]@cell.embeddings %>%
           as.data.frame() %>%
-          dplyr::rename(UMAP_1_merged = UMAP_1, UMAP_2_merged = UMAP_2) %>%
+          dplyr::rename(UMAP_1_merged = umap_1, UMAP_2_merged = umap_2) %>%
           tibble::rownames_to_column(var = "barcodes")
 umapDF <- merge(umapDF, hto_meta_singlet, by = "barcodes")
 rownames(umapDF) <- umapDF$barcodes
