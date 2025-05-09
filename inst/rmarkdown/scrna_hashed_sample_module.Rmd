@@ -159,6 +159,7 @@ featDF <- read_h5_feature_meta(all_h5[1])
 ```  
 
 Read in HTO files  
+
 ```{r hto_rna_hash_files}
 stm("Reading in hto key for hashed RNA analysis")
 # Read in all hto key to match hto names to barcodes
@@ -176,8 +177,7 @@ n_hto_meta <- length(all_hto_meta)
 if(n_hto_meta == 0){
   stop(sprintf("No 'hto_category_table.csv.gz' files found in %s", in_hto))
 } else if (n_hto_meta < n_wells){
-  hto_meta_warn <- sprintf("Input number of 'hto_category_table.csv.gz' files (%s) is fewer than number of wells (%s) in sample key",
-                           n_json, n_wells)
+  hto_meta_warn <- sprintf("Input number of 'hto_category_table.csv.gz' files (%s) is fewer than number of wells (%s) in sample key", n_wells)
   warning(hto_meta_warn)
   hto_warning_list <- c(hto_warning_list, hto_meta_warn)
 }
