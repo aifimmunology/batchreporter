@@ -207,7 +207,7 @@ while (i < length(count_list) + 1){
   temp_adt_so <- seurat_list[[i]]
   temp_adt_so <- SetIdent(temp_adt_so, value = 'orig.ident')
   temp_adt_positives <- subset(temp_adt_so, idents = 'Cells')
-  temp_adt_pos_mtx <- t(data.frame(temp_adt_positives@assays$RNA@counts))
+  temp_adt_pos_mtx <- t(data.frame(temp_adt_positives@assays$RNA@features))
   colsums_df <- data.frame(colSums(temp_adt_pos_mtx))
   colnames(colsums_df) <- 'Count'
   colsums_df$ADT <- rownames(colsums_df)
