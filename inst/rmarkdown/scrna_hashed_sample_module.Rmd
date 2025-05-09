@@ -174,13 +174,6 @@ all_hto_meta <- list.files(path = in_hto,
                            pattern = "hto_category_table.csv.gz$", 
                            full.names = TRUE, recursive = TRUE)
 n_hto_meta <- length(all_hto_meta)
-if(n_hto_meta == 0){
-  stop(sprintf("No 'hto_category_table.csv.gz' files found in %s", in_hto))
-} else if (n_hto_meta < n_wells){
-  hto_meta_warn <- sprintf("Input number of 'hto_category_table.csv.gz' files (%s) is fewer than number of wells (%s) in sample key", n_wells)
-  warning(hto_meta_warn)
-  hto_warning_list <- c(hto_warning_list, hto_meta_warn)
-}
 stm(paste0("IN HTO Metadata Files        :\n\t", paste(all_hto_meta, collapse = "\n\t")))
 cat(paste0("IN HTO Metadata Files        :\n\t", paste(all_hto_meta, collapse = "\n\t"))) 
 
